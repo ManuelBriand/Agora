@@ -1,0 +1,41 @@
+.white{
+
+
+    font-family: 'Righteous', sans-serif;
+}
+
+nav{
+    font-family: 'Righteous', sans-serif;
+    background-color: #2D4059;
+
+}
+.drop{
+    color: #2D4059;
+}
+
+nav >a{
+
+    color: #252A34;
+}
+
+
+section{
+    background-color: #FFD460;
+
+}
+
+h1, h5{
+
+    color: #252A34;
+    font-family: 'Righteous', sans-serif;
+}
+
+.card-content{
+    font-family: 'Sahitya', serif;
+    font-size: large;
+}
+
+.page-footer{
+    font-family: 'Righteous', sans-serif;
+    background-color: #2D4059;
+}
