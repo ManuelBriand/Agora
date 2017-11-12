@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Thought</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ thought.id }}</td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>{{ thought.author }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ thought.title }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ thought.content }}</td>
+            </tr>
+            <tr>
+                <th>Categories</th>
+                <td>{{ thought.categories }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ thought.email }}</td>
+            </tr>
+            <tr>
+                <th>Visible</th>
+                <td>{% if thought.visible%}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('thoughts_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('thoughts_edit', { 'id': thought.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
