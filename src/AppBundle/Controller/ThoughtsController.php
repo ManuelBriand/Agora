@@ -33,33 +33,6 @@ class ThoughtsController extends Controller
         ));
     }
 
-
-    /**
-     * Creates a new thought entity.
-     *
-     * @Route("/new", name="thoughts_new")
-     * @Method({"GET", "POST"})
-     */
-    public function newAction(Request $request)
-    {
-        $thought = new Thoughts();
-        $form = $this->createForm(SendThoughtsType::class, $thought);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($thought);
-            $em->flush();
-
-            return $this->redirectToRoute('thoughts_show', array('id' => $thought->getId()));
-        }
-
-        return $this->render('thoughts/new.html.twig', array(
-            'thought' => $thought,
-            'form' => $form->createView(),
-        ));
-    }
-
     /**
      * Finds and displays a thought entity.
      *
