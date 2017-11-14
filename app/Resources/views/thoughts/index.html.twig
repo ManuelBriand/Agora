@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="container white">
     <h1>Thoughts list</h1>
 
-    <table>
+    <table class="bordered">
         <thead>
             <tr>
                 <th>Id</th>
@@ -18,7 +19,7 @@
         </thead>
         <tbody>
         {% for thought in thoughts %}
-            <tr>
+            <tr {% if thought.visible == 1 %} class="green accent-1"{% else %} class="red lighten-4" {% endif %} >
                 <td><a href="{{ path('thoughts_show', { 'id': thought.id }) }}">{{ thought.id }}</a></td>
                 <td>{{ thought.author }}</td>
                 <td>{{ thought.title }}</td>
@@ -46,4 +47,5 @@
             <a href="{{ path('thoughts_new') }}">Create a new thought</a>
         </li>
     </ul>
+    </div>
 {% endblock %}

@@ -29,34 +29,7 @@ class ThoughtsController extends Controller
         $thoughts = $em->getRepository('AppBundle:Thoughts')->findAll();
 
         return $this->render('thoughts/index.html.twig', array(
-            'thoughts' => $thoughts,
-        ));
-    }
-
-
-    /**
-     * Creates a new thought entity.
-     *
-     * @Route("/new", name="thoughts_new")
-     * @Method({"GET", "POST"})
-     */
-    public function newAction(Request $request)
-    {
-        $thought = new Thoughts();
-        $form = $this->createForm(SendThoughtsType::class, $thought);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($thought);
-            $em->flush();
-
-            return $this->redirectToRoute('thoughts_show', array('id' => $thought->getId()));
-        }
-
-        return $this->render('thoughts/new.html.twig', array(
-            'thought' => $thought,
-            'form' => $form->createView(),
+            'thoughts' => array_reverse($thoughts),
         ));
     }
 
@@ -91,7 +64,7 @@ class ThoughtsController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('thoughts_edit', array('id' => $thought->getId()));
+            return $this->redirectToRoute('thoughts_index', array('id' => $thought->getId()));
         }
 
         return $this->render('thoughts/edit.html.twig', array(
