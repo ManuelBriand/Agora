@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+    <h1>Thought edit</h1>
+
+    {{ form_start(edit_form) }}
+
+        {{ form_widget(edit_form) }}
+
+    <input type="submit" value="Editer" class="waves-effect waves-light btn green" />
+
+    {{ form_end(edit_form) }}
+        <br>
+        <div class="row">
+        <div class="col s6">
+            <a href="{{ path('thoughts_index') }}" class="waves-effect waves-light btn blue">Back to the list</a>
+        </div>
+        <div class="col s6">
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="waves-effect waves-light btn red">
+            {{ form_end(delete_form) }}
+        </div>
+        </div>
+    </div>
+{% endblock %}

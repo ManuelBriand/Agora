@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Thoughts list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Author</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Categories</th>
+                <th>Email</th>
+                <th>Visible</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for thought in thoughts %}
+            <tr>
+                <td><a href="{{ path('thoughts_show', { 'id': thought.id }) }}">{{ thought.id }}</a></td>
+                <td>{{ thought.author }}</td>
+                <td>{{ thought.title }}</td>
+                <td>{{ thought.content }}</td>
+                <td>{{ thought.categories }}</td>
+                <td>{{ thought.email }}</td>
+                <td>{% if thought.visible %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('thoughts_show', { 'id': thought.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('thoughts_edit', { 'id': thought.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('thoughts_new') }}">Create a new thought</a>
+        </li>
+    </ul>
+{% endblock %}
