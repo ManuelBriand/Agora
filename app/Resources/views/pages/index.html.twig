@@ -14,10 +14,9 @@
 
             </div>
         </div>
-        <div class="parallax"><img src="{{ asset('assets/images/chile-house-1115590_960_720.jpg') }}" alt=""></div>
+        <div class="parallax"><img src="{{ asset('assets/images/stars.jpeg') }}" alt=""></div>
 
     </div>
-
     <section>
     {% for thought in thoughts %}
         {% if thought.visible == 1 %}
@@ -30,33 +29,6 @@
                                 <span class="card-title">{{ thought.title }}</span>
                                 <blockquote>
                                     {{ thought.content }}
-                                    {#<p>Cet amour <br>#}
-                                        {#Si violent <br>#}
-                                        {#Si fragile<br>#}
-                                        {#Si tendre<br>#}
-                                        {#Si désespéré<br>#}
-                                        {#Cet amour<br>#}
-                                        {#Beau comme le jour<br>#}
-                                        {#Et mauvais comme le temps<br>#}
-                                        {#Quand le temps est mauvais<br>#}
-                                        {#Cet amour si vrai<br>#}
-                                        {#Cet amour si beau<br>#}
-                                        {#Si heureux<br>#}
-                                        {#Si joyeux<br>#}
-                                        {#Et si dérisoire<br>#}
-                                        {#Tremblant de peur comme un enfant dans le noir<br>#}
-                                        {#Et si sûr de lui<br>#}
-                                        {#Comme un homme tranquille au milieu de la nuit<br>#}
-                                        {#Cet amour qui faisait peur aux autres<br>#}
-                                        {#Qui les faisait parler<br>#}
-                                        {#Qui les faisait blêmir<br>#}
-                                        {#Cet amour guetté<br>#}
-                                        {#Parce que nous le guettions<br>#}
-                                        {#Traqué blessé piétiné achevé nié oublié<br>#}
-                                        {#Parce que nous l'avons traqué blessé piétiné achevé nié oublié<br>#}
-                                        {#Cet amour tout entier<br>#}
-                                        {#Si vivant encore<br>#}
-                                        {#Et tout ensoleillé </p>#}
                                     <br>
                                     <cite>{{ thought.author }}</cite>
 
@@ -77,7 +49,7 @@
     {% endfor %}
     </section>
     <div class="parallax-container">
-        <div class="parallax"><img src="{{ asset('assets/images/chile-house-1115590_960_720.jpg') }}"></div>
+        <div class="parallax"><img src="{{ asset('assets/images/stars.jpeg') }}"></div>
     </div>
 
 {% endblock %}

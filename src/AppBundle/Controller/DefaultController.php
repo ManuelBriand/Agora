@@ -29,50 +29,70 @@ class DefaultController extends Controller
      */
     public function fulguranceAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('pages/fulgurance.html.twig', [
+        $em = $this->getDoctrine()->getManager();
+
+        $thoughts = $em->getRepository('AppBundle:Thoughts')->findAll();
+
+        return $this->render('pages/fulgurance.html.twig', array(
+            'thoughts' => array_reverse($thoughts),
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        ));
     }
     /**
      * @Route("humour", name="humour")
      */
     public function humourAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('pages/humour.html.twig', [
+        $em = $this->getDoctrine()->getManager();
+
+        $thoughts = $em->getRepository('AppBundle:Thoughts')->findAll();
+
+        return $this->render('pages/humour.html.twig', array(
+            'thoughts' => array_reverse($thoughts),
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        ));
     }
     /**
      * @Route("philosophie", name="philosophie")
      */
     public function philosophieAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('pages/philosophie.html.twig', [
+        $em = $this->getDoctrine()->getManager();
+
+        $thoughts = $em->getRepository('AppBundle:Thoughts')->findAll();
+
+        return $this->render('pages/philosophie.html.twig', array(
+            'thoughts' => array_reverse($thoughts),
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        ));
     }
     /**
      * @Route("poesie", name="poesie")
      */
     public function poesieAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('pages/poesie.html.twig', [
+        $em = $this->getDoctrine()->getManager();
+
+        $thoughts = $em->getRepository('AppBundle:Thoughts')->findAll();
+
+        return $this->render('pages/poesie.html.twig', array(
+            'thoughts' => array_reverse($thoughts),
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        ));
     }
     /**
      * @Route("politique", name="politique")
      */
     public function politiqueAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('pages/politique.html.twig', [
+        $em = $this->getDoctrine()->getManager();
+
+        $thoughts = $em->getRepository('AppBundle:Thoughts')->findAll();
+
+        return $this->render('pages/politique.html.twig', array(
+            'thoughts' => array_reverse($thoughts),
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        ));
     }
     /**
      * Creates a new thought entity.
@@ -80,7 +100,7 @@ class DefaultController extends Controller
      * @Route("/new", name="thoughts_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function sendAction(Request $request)
     {
         $thought = new Thoughts();
         $form = $this->createForm(SendThoughtsType::class, $thought);
@@ -91,7 +111,7 @@ class DefaultController extends Controller
             $em->persist($thought);
             $em->flush();
 
-            return $this->redirectToRoute('thoughts_show', array('id' => $thought->getId()));
+            return $this->redirectToRoute('homepage', array('id' => $thought->getId()));
         }
 
         return $this->render('pages/new.html.twig', array(
@@ -116,7 +136,7 @@ class DefaultController extends Controller
         $thoughts = $em->getRepository('AppBundle:Thoughts')->findAll();
 
         return $this->render('pages/index.html.twig', array(
-            'thoughts' => $thoughts,
+            'thoughts' => array_reverse($thoughts),
         ));
     }
 

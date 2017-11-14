@@ -29,7 +29,7 @@ class ThoughtsController extends Controller
         $thoughts = $em->getRepository('AppBundle:Thoughts')->findAll();
 
         return $this->render('thoughts/index.html.twig', array(
-            'thoughts' => $thoughts,
+            'thoughts' => array_reverse($thoughts),
         ));
     }
 
@@ -64,7 +64,7 @@ class ThoughtsController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('thoughts_edit', array('id' => $thought->getId()));
+            return $this->redirectToRoute('thoughts_index', array('id' => $thought->getId()));
         }
 
         return $this->render('thoughts/edit.html.twig', array(
