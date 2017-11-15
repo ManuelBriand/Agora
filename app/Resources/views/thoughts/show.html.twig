@@ -2,10 +2,10 @@
 
 {% block body %}
     <div class="container white">
-    <h1>Thought</h1>
+        <h1>Thought</h1>
 
-    <table>
-        <tbody>
+        <table>
+            <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ thought.id }}</td>
@@ -32,23 +32,26 @@
             </tr>
             <tr>
                 <th>Visible</th>
-                <td>{% if thought.visible%}Yes{% else %}No{% endif %}</td>
+                <td>{% if thought.visible %}Yes{% else %}No{% endif %}</td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('thoughts_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('thoughts_edit', { 'id': thought.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        <div class="row">
+            <div class="col s12 m4">
+                <a href="{{ path('thoughts_index') }}" class="btnShow waves-effect waves-light btn blue">Back to the
+                    list</a>
+            </div>
+            <div class="col s12 m4">
+                <a href="{{ path('thoughts_edit', { 'id': thought.id }) }}"
+                   class="btnShow waves-effect waves-light btn green">Edit</a>
+            </div>
+            <div class="col s12 m4">
+                {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btnShow waves-effect waves-light btn red">
+                {{ form_end(delete_form) }}
+            </div>
+        </div>
+
     </div>
 {% endblock %}

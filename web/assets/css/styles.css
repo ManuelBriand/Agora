@@ -44,3 +44,15 @@ body{
     background-color: #FFD460;
 
 }
+
+.btnIndex{
+    width: 100px;
+    margin-bottom: 15px;
+}
+.btnShow{
+    width:15em;
+}
+
+.container{
+    padding: 10px;
+}

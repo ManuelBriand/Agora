@@ -30,10 +30,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('thoughts_show', { 'id': thought.id }) }}">show</a>
+                            <a href="{{ path('thoughts_show', { 'id': thought.id }) }}" class="btnIndex waves-effect waves-light btn orange darken3">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('thoughts_edit', { 'id': thought.id }) }}">edit</a>
+                            <a href="{{ path('thoughts_edit', { 'id': thought.id }) }}" class="btnIndex waves-effect waves-light btn blue">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -44,7 +44,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('thoughts_new') }}">Create a new thought</a>
+            <a href="{{ path('thoughts_new') }}" class="waves-effect waves-light btn green accent-3">Create a new thought</a>
         </li>
     </ul>
     </div>

@@ -21,7 +21,7 @@ class SendThoughtsType extends AbstractType
             ->add('title')
             ->add('content')
             ->add('categories',    ChoiceType::class, [
-                'placeholder' => 'Catégorie',
+                'placeholder' => 'Catégories',
                 'choices' => [
                     'Fulgurance' => 'fulgurance',
                     'Humour' => 'humour',
