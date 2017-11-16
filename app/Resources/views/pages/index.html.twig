@@ -1,56 +1,56 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div id="index-banner" class="parallax-container">
-        <div class="section no-pad-bot">
-            <div class="container">
-                <br><br>
-                <h1 class="header center white-text">Bienvenue sur Agora</h1>
-                <div class="row center">
-                    <h5 class="header col s12 white-text"> Place publique de libre pensée, ou chaqu'un est écouté, osez partager vos fulgurance ! </h5>
-                </div>
-
-                <br><br>
-
-            </div>
-        </div>
-        <div class="parallax"><img src="{{ asset('assets/images/stars.jpeg') }}" alt=""></div>
-
-    </div>
     <section>
-    {% for thought in thoughts %}
-        {% if thought.visible == 1 %}
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col s12">
-                        <div class="card">
-                            <div class="card-content">
-                                <span class="card-title">{{ thought.title }}</span>
-                                <blockquote>
-                                    {{ thought.content }}
-                                    <br>
-                                    <cite>{{ thought.author }}</cite>
-
-                                </blockquote>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col s12 l5 offset-l3">
+                    {% for thought in thoughts %}
+                        {% if thought.visible == 1 %}
+                            <div class="section">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <div class="card">
+                                            <div class="card-content">
+                                                <span class="card-title">{{ thought.title }}</span>
+                                                <blockquote>
+                                                    {{ thought.content }}
+                                                    <br>
+                                                    <cite>{{ thought.author }}</cite>
+                                                </blockquote>
+                                            </div>
+                                            <div class="card-action">
+                                                <a class="btn-floating btn waves-effect waves-light grey"><i
+                                                            class="material-icons">comment</i></a>
+                                                <a class="btn-floating btn waves-effect waves-light orange darken-3 right"><i
+                                                            class="material-icons">thumb_up</i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-action">
-                                <a href="#">Commenter</a>
-                                <a href="#">This is a link</a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="col s12 l4">
+                    <div class="row">
+                        <div class="col s12 m9">
+                            <div class="card grey lighten-3">
+                                <div class="card-content">
+                                    <span class="card-title">Bienvenu sur Agora</span>
+                                    <p>Place publique de libre pensée, ou chaqu'un est écouté, osez partager vos
+                                        fulgurance !</p>
+                                </div>
+                                <div class="card-action right-align">
+                                    <a href="#" class="btn follow">Follow us</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
-        {% endif %}
-    {% endfor %}
     </section>
-    <div class="parallax-container">
-        <div class="parallax"><img src="{{ asset('assets/images/stars.jpeg') }}"></div>
-    </div>
 
 {% endblock %}
 
