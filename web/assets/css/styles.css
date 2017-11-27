@@ -20,13 +20,13 @@ nav >a{
 
 
 section{
-    background-color: #FFD460;
+    background-color: #e0e0e0;
 
 }
 
 h1, h5{
 
-    color: #252A34;
+    color: #2D4059;
     font-family: 'Righteous', sans-serif;
 }
 
@@ -35,12 +35,29 @@ h1, h5{
     font-size: large;
 }
 
+
 .page-footer{
     font-family: 'Righteous', sans-serif;
     background-color: #2D4059;
 }
 
 body{
-    background-color: #FFD460;
-
+    background-color: #e0e0e0;
+    color: #2D4059;
 }
+
+.btnIndex{
+    width: 100px;
+    margin-bottom: 15px;
+}
+.btnShow{
+    width:15em;
+}
+.follow{
+    background-color: #2D4059;
+}
+
+blockquote{
+    border-left: 5px solid #ef6c00;
+}
+

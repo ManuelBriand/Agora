@@ -22,6 +22,16 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+    /**
+     * @Route("admin", name="admin")
+     */
+    public function adminAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('pages/admin.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+        ]);
+    }
 
 
     /**

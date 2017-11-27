@@ -5,8 +5,11 @@ security:
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         in_memory:
-            memory: ~
-
+            memory:
+                users:
+                    admin:
+                        password: $2y$12$Kl9EoMfKa5yEi8N/D8hPZOl.yBJ05gF6pBnpqHZyK0uV/cdbgzIBW
+                        roles: 'ROLE_ADMIN'
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
@@ -18,7 +21,16 @@ security:
             # activate different ways to authenticate
 
             # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-            #http_basic: ~
+            http_basic: ~
 
             # https://symfony.com/doc/current/security/form_login_setup.html
             #form_login: ~
+
+    access_control:
+            # require ROLE_ADMIN for /thoughts*
+            - { path: ^/thoughts, roles: ROLE_ADMIN }
+
+    encoders:
+        Symfony\Component\Security\Core\User\User:
+            algorithm: bcrypt
+            cost: 12

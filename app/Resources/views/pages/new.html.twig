@@ -2,17 +2,22 @@
 
 {% block body %}
 
-        <h1 class="center white-text">Poster votre pensée</h1>
-    <div class="section white">
+        <h1 class="center titlePost">Poster votre pensée</h1>
+    <div class="container section white">
         {{ form_start(form) }}
     <div class="container">
         <div class="row">
             <div class="col s12">
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col s12 m6">
                         {{ form_widget(form.author) }}
                         {{ form_errors(form.author) }}
-                        <label for="pseudo">Votre pseudo</label>
+                        <label for="pseudo">Pseudo</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        {{ form_widget(form.email) }}
+                        {{ form_errors(form.email) }}
+                        <label for="email">Email</label>
                     </div>
                 </div>
                 <div class="row">
@@ -30,19 +35,16 @@
                     <div class="input-field col s12">
                         {{ form_widget(form.content, { 'attr': {'class': 'materialize-textarea'} }) }}
                         {{ form_errors(form.content) }}
-                        <label for="content">Votre pensée</label>
+                        <label for="content">Pensée</label>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="input-field col s12 m6">
-                        {{ form_widget(form.email) }}
-                        {{ form_errors(form.email) }}
-                        <label for="email">Email</label>
-                    </div>
-                    <div class="input-field col s12 m6">
 
-                        <input type="submit" value="Poster" class="waves-effect waves-light btn orange darken-3"/>
+                    <div class="input-field col s12 center">
+                        <button class="btn-large waves-effect waves-light orange darken-3" type="submit" name="action">Poster
+                            <i class="material-icons right">send</i>
+                        </button>
                     </div>
                 </div>
             </div>
