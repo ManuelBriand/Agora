@@ -16,7 +16,7 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 
 class LoadThoughtsData extends Fixture implements FixtureInterface
 {
-    const MAX = 10;
+    const MAX = 50;
     public function load(ObjectManager $manager)
     {
         $faker = Faker\Factory::create("fr_FR");
@@ -29,7 +29,7 @@ class LoadThoughtsData extends Fixture implements FixtureInterface
             $thought[$i]->setContent($faker->sentence($nbWords = 6, $variableNbWords = true));
             $thought[$i]->setCategories($faker->randomElement($array = array ('humour','poesie','fulgurance')));
             $thought[$i]->setEmail($faker->email);
-            $thought[$i]->setVisible($faker->randomElement($array = array ('1','0')));
+            $thought[$i]->setVisible(1);
             $manager->persist($thought[$i]);
         }
         $manager->flush();

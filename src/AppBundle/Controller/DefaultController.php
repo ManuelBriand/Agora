@@ -17,9 +17,17 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+
+        $listeReservations = $em->getRepository('AppBundle:Thoughts')->findAll();
+        $thoughts  = $this->get('knp_paginator')->paginate(
+            $listeReservations,
+            $request->query->get('page', 1)/*le numéro de la page à afficher*/,
+            10/*nbre d'éléments par page*/
+        );
         // replace this example code with whatever you need
         return $this->render('pages/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+            'thoughts' => $thoughts,
         ]);
     }
     /**
@@ -132,22 +140,22 @@ class DefaultController extends Controller
 
 
 
-    /**
-     * Lists all thought entities.
-     *
-     * @Route("/", name="homepage")
-     * @Method("GET")
-     */
-
-    public function showAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $thoughts = $em->getRepository('AppBundle:Thoughts')->findAll();
-
-        return $this->render('pages/index.html.twig', array(
-            'thoughts' => array_reverse($thoughts),
-        ));
-    }
+//    /**
+//     * Lists all thought entities.
+//     *
+//     * @Route("/", name="homepage")
+//     * @Method("GET")
+//     */
+//
+//    public function showAction()
+//    {
+//        $em = $this->getDoctrine()->getManager();
+//
+//        $thoughts = $em->getRepository('AppBundle:Thoughts')->findAll();
+//
+//        return $this->render('pages/index.html.twig', array(
+//            'thoughts' => array_reverse($thoughts),
+//        ));
+//    }
 
 }
