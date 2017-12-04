@@ -56,7 +56,12 @@ body{
 .follow{
     background-color: #2D4059;
 }
-
+.pagination{
+    background-color: #2D4059;
+}
+.current{
+    color: #ef6c00;
+}
 blockquote{
     border-left: 5px solid #ef6c00;
 }

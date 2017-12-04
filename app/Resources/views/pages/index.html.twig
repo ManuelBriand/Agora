@@ -5,6 +5,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col s12 l5 offset-l3">
+                    <ul class="pagination center white-text">
+                        <li class="active white">{{ knp_pagination_render(thoughts) }}</li>
+                    </ul>
                     {% for thought in thoughts %}
                         {% if thought.visible == 1 %}
                             <div class="section">
@@ -31,7 +34,11 @@
                             </div>
                         {% endif %}
                     {% endfor %}
+                    <ul class="pagination center">
+                        <li class="active white">{{ knp_pagination_render(thoughts) }}</li>
+                    </ul>
                 </div>
+
                 <div class="col s12 l4">
                     <div class="row">
                         <div class="col s12 m9">
