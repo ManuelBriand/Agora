@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: manuel
- * Date: 26/11/17
- * Time: 15:29
- */
+
 
 namespace AppBundle\DataFixtures\ORM;
 
@@ -29,7 +24,7 @@ class LoadThoughtsData extends Fixture implements FixtureInterface
             $thought[$i]->setContent($faker->sentence($nbWords = 6, $variableNbWords = true));
             $thought[$i]->setCategories($faker->randomElement($array = array ('humour','poesie','fulgurance')));
             $thought[$i]->setEmail($faker->email);
-            $thought[$i]->setVisible(1);
+            $thought[$i]->setVisible($faker->randomElement($array = array (1, 0)));
             $manager->persist($thought[$i]);
         }
         $manager->flush();
